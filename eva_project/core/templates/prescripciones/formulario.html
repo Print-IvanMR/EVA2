@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Nueva Prescripcion</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Paciente:</label><br>
+    <select name="paciente">
+        {% for p in pacientes %}
+        <option value="{{ p.id }}">{{ p.nombre }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Medicamento:</label><br>
+    <select name="medicamento">
+        {% for m in medicamentos %}
+        <option value="{{ m.id }}">{{ m.nombre }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Dosis:</label><br>
+    <input type="text" name="dosis"><br><br>
+
+    <label>Fecha inicio:</label><br>
+    <input type="date" name="fecha_inicio"><br><br>
+
+    <label>Fecha fin:</label><br>
+    <input type="date" name="fecha_fin"><br><br>
+
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

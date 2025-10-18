@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Prescripciones</h2>
+<a class="boton" href="{% url 'crear_prescripcion' %}">Nueva Prescripcion</a>
+<table>
+<tr>
+    <th>Paciente</th>
+    <th>Medicamento</th>
+    <th>Dosis</th>
+    <th>Inicio</th>
+    <th>Fin</th>
+    <th>Acciones</th>
+</tr>
+{% for p in prescripciones %}
+<tr>
+    <td>{{ p.paciente.nombre }}</td>
+    <td>{{ p.medicamento.nombre }}</td>
+    <td>{{ p.dosis }}</td>
+    <td>{{ p.fecha_inicio }}</td>
+    <td>{{ p.fecha_fin }}</td>
+    <td>
+        <a href="{% url 'eliminar_prescripcion' p.id %}" class="boton eliminar">Eliminar</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

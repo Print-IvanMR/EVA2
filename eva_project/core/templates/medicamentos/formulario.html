@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if medicamento %}Editar Medicamento{% else %}Nuevo Medicamento{% endif %}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" value="{{ medicamento.nombre|default:'' }}"><br><br>
+
+    <label>Descripción:</label><br>
+    <textarea name="descripcion">{{ medicamento.descripcion|default:'' }}</textarea><br><br>
+
+    <label>Laboratorio:</label><br>
+    <input type="text" name="laboratorio" value="{{ medicamento.laboratorio|default:'' }}"><br><br>
+
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión Hospitalaria</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f5f2;
+            color: #333;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        nav {
+            background-color: #2f6f61;
+            padding: 15px;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e1f0ec;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff8f0;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border-bottom: 1px solid #dcdcdc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #a6d4c3;
+            color: #1b3a2c;
+        }
+
+        tr:hover {
+            background-color: #d8f0e6;
+        }
+
+        a.boton {
+            background-color: #4caf8c;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        a.boton:hover {
+            background-color: #3a8a6f;
+        }
+
+        a.eliminar {
+            background-color: #e06b5a;
+        }
+
+        a.eliminar:hover {
+            background-color: #c45140;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+
+        input[type=text],
+        input[type=date],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf8c;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #3a8a6f;
+        }
+
+        h2 {
+            color: #2f6f61;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'lista_pacientes' %}">Pacientes</a>
+        <a href="{% url 'lista_medicamentos' %}">Medicamentos</a>
+        <a href="{% url 'lista_prescripciones' %}">Prescripciones</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

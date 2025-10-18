@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if paciente %}Editar Paciente{% else %}Nuevo Paciente{% endif %}</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Nombre:</label><input type="text" name="nombre" value="{{ paciente.nombre|default:'' }}"><br>
+    <label>RUT:</label><input type="text" name="rut" value="{{ paciente.rut|default:'' }}"><br>
+    <label>Fecha Nacimiento:</label><input type="date" name="fecha_nacimiento" value="{{ paciente.fecha_nacimiento|date:'Y-m-d' }}"><br>
+    <label>Dirección:</label><input type="text" name="direccion" value="{{ paciente.direccion|default:'' }}"><br>
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}
